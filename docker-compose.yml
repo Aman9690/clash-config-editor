@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  clash-config-editor:
+    build: .
+    container_name: clash-config-editor
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./configs:/app/configs
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+      - AUTH_ENABLED=true
+      - AUTH_USERNAME=admin
+      - AUTH_PASSWORD=change_this_password
+      - ALLOWED_ORIGINS=
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:3000/api/auth/status"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s

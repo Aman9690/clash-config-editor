@@ -1,0 +1,2 @@
+# 此文件用于保持configs目录在git中被追踪
+# 实际的配置文件会被.gitignore忽略

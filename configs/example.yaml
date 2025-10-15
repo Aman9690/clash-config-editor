@@ -1,0 +1,80 @@
+mixed-port: 10801
+allow-lan: true
+bind-address: '*'
+mode: rule
+log-level: info
+ipv6: true
+external-controller: 0.0.0.0:9093
+dns:
+  enable: true
+  listen: 0.0.0.0:53
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  fake-ip-filter:
+    - '*.lan'
+    - localhost.ptlogin2.qq.com
+  default-nameserver:
+    - 114.114.114.114
+    - 8.8.8.8
+  nameserver:
+    - 114.114.114.114
+    - https://doh.pub/dns-query
+  fallback:
+    - tls://1.1.1.1
+    - https://dns.google/dns-query
+proxies:
+  - name: 示例VMess节点
+    type: vmess
+    server: example.com
+    port: 443
+    uuid: your-uuid
+    alterId: 0
+    cipher: auto
+    tls: true
+    network: ws
+  - name: 示例Trojan节点
+    type: trojan
+    server: example.com
+    port: 443
+    password: your-password
+    sni: example.com
+    udp: true
+proxy-groups:
+  - name: 🚀 手动切换
+    type: select
+    proxies:
+      - 示例VMess节点
+      - 示例Trojan节点
+      - DIRECT
+  - name: 🔰 自动选择
+    type: url-test
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    proxies:
+      - 示例SS节点
+      - 示例VMess节点
+      - 示例Trojan节点
+  - name: 📲 电报消息
+    type: select
+    proxies:
+      - 🚀 手动切换
+      - 🔰 自动选择
+  - name: 🎯 全球直连
+    type: select
+    proxies:
+      - DIRECT
+      - 🚀 手动切换
+  - name: 🛑 广告拦截
+    type: select
+    proxies:
+      - REJECT
+      - DIRECT
+rules:
+  - DOMAIN-SUFFIX,google.com,🚀 手动切换
+  - DOMAIN-KEYWORD,google,🚀 手动切换
+  - DOMAIN,google.com,🚀 手动切换
+  - DOMAIN-SUFFIX,telegram.org,📲 电报消息
+  - IP-CIDR,127.0.0.0/8,🎯 全球直连
+  - GEOIP,CN,🎯 全球直连
+  - MATCH,🚀 手动切换
+external-ui: ''
