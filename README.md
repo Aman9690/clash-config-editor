@@ -287,8 +287,6 @@ ClashConfigEdit/
 4. ✅ **配置CORS白名单**：限制允许的域名
 5. ✅ **配置防火墙**：只开放必要的端口
 
-**详细安全指南请查看：[SECURITY.md](./SECURITY.md)**
-
 ## 📄 License
 
 MIT License
