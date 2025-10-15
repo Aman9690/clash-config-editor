@@ -15,12 +15,56 @@
 
 ## 🚀 快速开始
 
-### 方式一：Docker 部署（推荐）
+### 方式一：使用发布的Docker镜像（最简单）
+
+```bash
+# 拉取最新镜像
+docker pull ghcr.io/xiaoyutx94/clash-config-editor:latest
+
+# 运行容器
+docker run -d \
+  -p 3000:3000 \
+  -v ./configs:/app/configs \
+  -e AUTH_ENABLED=true \
+  -e AUTH_USERNAME=admin \
+  -e AUTH_PASSWORD=your_secure_password \
+  --name clash-config-editor \
+  ghcr.io/xiaoyutx94/clash-config-editor:latest
+```
+
+访问：http://localhost:3000
+
+### 方式二：使用docker-compose
+
+创建 `docker-compose.yml`:
+```yaml
+version: '3.8'
+services:
+  clash-config-editor:
+    image: ghcr.io/xiaoyutx94/clash-config-editor:latest
+    container_name: clash-config-editor
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./configs:/app/configs
+    environment:
+      - AUTH_ENABLED=true
+      - AUTH_USERNAME=admin
+      - AUTH_PASSWORD=your_secure_password
+    restart: unless-stopped
+```
+
+然后运行：
+```bash
+docker-compose up -d
+```
+
+### 方式三：从源码构建 Docker 镜像
 
 1. 克隆项目：
 ```bash
-git clone <repository-url>
-cd ClashConfigEdit
+git clone https://github.com/xiaoyutx94/clash-config-editor.git
+cd clash-config-editor
 ```
 
 2. 启动容器：
@@ -30,7 +74,7 @@ docker-compose up -d
 
 3. 访问：http://localhost:3000
 
-### 方式二：本地开发
+### 方式四：本地开发
 
 #### 前置要求
 - Node.js 18+ 
